@@ -19,8 +19,8 @@ def root():
 # Cấu hình CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ⚠️ Có thể thay bằng ["https://giaoan-gdnn-ai.vercel.app"] nếu cần hạn chế
-    allow_credentials=False,
+    allow_origins=["https://giaoan-gdnn-ai.vercel.app"],  # ⚠️ Có thể thay bằng ["https://giaoan-gdnn-ai.vercel.app"] nếu cần hạn chế
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
