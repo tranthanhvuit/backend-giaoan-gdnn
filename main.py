@@ -15,7 +15,8 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://giaoan-gdnn-ai.vercel.app"],
+    # allow_origins=["https://giaoan-gdnn-ai.vercel.app"],
+     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -49,23 +50,33 @@ async def generate(file: UploadFile = File(...), loai: str = Form(...)):
     return {"result": result}
 
 @app.post("/generate-docx")
+@app.post("/generate-docx")
 async def generate_docx(file: UploadFile = File(...), loai: str = Form(...)):
-    content = await file.read()
-    decuong_text = read_docx(content)
-    result = generate_giao_an(decuong_text, loai)
+    print(f"📥 Nhận file: {file.filename}, loại giáo án: {loai}")  # ✅ Dòng log mới
 
-    filename = f"giaoan_{uuid.uuid4().hex}.docx"
-    filepath = os.path.join("output", filename)
-    os.makedirs("output", exist_ok=True)
+    contents = await file.read()
+    doc = Document(BytesIO(contents))
+    text = "\n".join([para.text for para in doc.paragraphs])
 
-    doc = Document()
-    doc.add_heading("Giáo Án", 0)
-    for line in result.split("\n"):
-        doc.add_paragraph(line)
-    doc.save(filepath)
+    prompt = f"Tạo giáo án dạng bảng cho dạng '{loai}' từ nội dung sau:\n\n{text}"
+    print(f"🧠 Prompt gửi đến OpenAI:\n{prompt[:500]}...")  # ✅ Giới hạn để không quá dài
 
-    return FileResponse(
-        path=filepath,
-        filename="giao_an_output.docx",
-        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=1500,
     )
+
+    result_text = response.choices[0].message.content
+    print("✅ GPT trả về nội dung")
+
+    word_doc = Document()
+    word_doc.add_paragraph(result_text)
+    buffer = BytesIO()
+    word_doc.save(buffer)
+    buffer.seek(0)
+
+    print("📤 Trả về file Word thành công.")
+    return StreamingResponse(buffer, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", headers={
+        "Content-Disposition": "attachment; filename=giao_an_output.docx"
+    })
