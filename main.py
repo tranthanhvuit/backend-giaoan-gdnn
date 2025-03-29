@@ -1,9 +1,9 @@
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 import os
-import uuid
+from io import BytesIO
 from docx import Document
 import openai
 
@@ -13,17 +13,16 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
 
+# Cấu hình CORS
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=["https://giaoan-gdnn-ai.vercel.app"],
-     allow_origins=["*"],
+    allow_origins=["https://giaoan-gdnn-ai.vercel.app"],  # ⚠️ Có thể thay bằng ["https://giaoan-gdnn-ai.vercel.app"] nếu cần hạn chế
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 def read_docx(file_bytes):
-    from io import BytesIO
     doc = Document(BytesIO(file_bytes))
     full_text = [para.text for para in doc.paragraphs]
     return "\n".join(full_text)
@@ -50,24 +49,28 @@ async def generate(file: UploadFile = File(...), loai: str = Form(...)):
     return {"result": result}
 
 @app.post("/generate-docx")
-@app.post("/generate-docx")
 async def generate_docx(file: UploadFile = File(...), loai: str = Form(...)):
-    print(f"📥 Nhận file: {file.filename}, loại giáo án: {loai}")  # ✅ Dòng log mới
+    print(f"📥 Nhận file: {file.filename}, loại giáo án: {loai}")
 
     contents = await file.read()
-    doc = Document(BytesIO(contents))
-    text = "\n".join([para.text for para in doc.paragraphs])
+    text = read_docx(contents)
 
-    prompt = f"Tạo giáo án dạng bảng cho dạng '{loai}' từ nội dung sau:\n\n{text}"
-    print(f"🧠 Prompt gửi đến OpenAI:\n{prompt[:500]}...")  # ✅ Giới hạn để không quá dài
+    prompt = f"""Chuyển nội dung đề cương sau thành giáo án dạng bảng theo mẫu của Tổng cục Giáo dục nghề nghiệp (phân biệt rõ hoạt động giáo viên - người học). 
+Loại giáo án: {loai.upper()}
+---
+{text}
+"""
 
-    response = client.chat.completions.create(
+    print(f"🧠 Prompt gửi đến OpenAI:\n{prompt[:500]}...")  # Giới hạn để tránh log quá dài
+
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=1500,
+        temperature=0.3,
+        max_tokens=2000,
     )
 
-    result_text = response.choices[0].message.content
+    result_text = response['choices'][0]['message']['content']
     print("✅ GPT trả về nội dung")
 
     word_doc = Document()
