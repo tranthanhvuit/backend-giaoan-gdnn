@@ -12,6 +12,9 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Backend is running"}
 
 # Cấu hình CORS
 app.add_middleware(
