@@ -5,11 +5,11 @@ from dotenv import load_dotenv
 import os
 from io import BytesIO
 from docx import Document
-import openai
+from openai import OpenAI  # ✅ Dùng phiên bản mới
 
 # Load biến môi trường
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 app = FastAPI()
 
@@ -40,13 +40,13 @@ Loại giáo án: {loai.upper()}
 ---
 {decuong_text}
 """
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.3,
         max_tokens=2000,
     )
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
 
 @app.post("/generate")
 async def generate(file: UploadFile = File(...), loai: str = Form(...)):
