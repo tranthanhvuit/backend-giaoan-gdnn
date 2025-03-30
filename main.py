@@ -56,36 +56,19 @@ async def generate(file: UploadFile = File(...), loai: str = Form(...)):
 
 @app.post("/generate-docx")
 async def generate_docx(file: UploadFile = File(...), loai: str = Form(...)):
-    print(f"📥 Nhận file: {file.filename}, loại giáo án: {loai}")
+    try:
+        contents = await file.read()
+        if not contents:
+            raise HTTPException(status_code=400, detail="Empty file")
 
-    contents = await file.read()
-    text = read_docx(contents)
+        # Ghi ra tệp tạm
+        with open("temp.docx", "wb") as f:
+            f.write(contents)
 
-    prompt = f"""Chuyển nội dung đề cương sau thành giáo án dạng bảng theo mẫu của Tổng cục Giáo dục nghề nghiệp (phân biệt rõ hoạt động giáo viên - người học). 
-Loại giáo án: {loai.upper()}
----
-{text}
-"""
+        # Gọi OpenAI hoặc xử lý
+        # Kết quả: tạo file mới export và trả lại
 
-    print(f"🧠 Prompt gửi đến OpenAI:\n{prompt[:500]}...")  # Giới hạn để tránh log quá dài
-
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.3,
-        max_tokens=2000,
-    )
-
-    result_text = response['choices'][0]['message']['content']
-    print("✅ GPT trả về nội dung")
-
-    word_doc = Document()
-    word_doc.add_paragraph(result_text)
-    buffer = BytesIO()
-    word_doc.save(buffer)
-    buffer.seek(0)
-
-    print("📤 Trả về file Word thành công.")
-    return StreamingResponse(buffer, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", headers={
-        "Content-Disposition": "attachment; filename=giao_an_output.docx"
-    })
+        return FileResponse("output.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document", filename="giao_an.docx")
+    except Exception as e:
+        print("Lỗi khi xử lý file:", e)
+        raise HTTPException(status_code=500, detail=str(e))
