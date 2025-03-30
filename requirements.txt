@@ -2,5 +2,4 @@ fastapi
 uvicorn
 python-docx
 openai
-python-multipart
 python-dotenv
