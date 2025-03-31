@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 import os
 from io import BytesIO
 from docx import Document
-from openai import OpenAI  # ✅ Dùng phiên bản mới
+from openai import OpenAI
+from pathlib import Path
 
 # Load biến môi trường
 load_dotenv()
@@ -29,20 +30,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load prompt mẫu từ thư mục
+PROMPT_TEMPLATES = {
+    "lythuyet": Path("prompts/prompt_giaoan_lythuyet.txt").read_text(encoding="utf-8"),
+    "thuchanh": Path("prompts/prompt_giaoan_thuchanh.txt").read_text(encoding="utf-8"),
+    "tichhop": Path("prompts/prompt_giaoan_tichhop.txt").read_text(encoding="utf-8"),
+}
+
 def read_docx(file_bytes):
     doc = Document(BytesIO(file_bytes))
     full_text = [para.text for para in doc.paragraphs]
     return "\n".join(full_text)
 
 def generate_giao_an(decuong_text, loai):
-    prompt = f"""Chuyển nội dung đề cương sau thành giáo án dạng bảng theo mẫu của Tổng cục Giáo dục nghề nghiệp (phân biệt rõ hoạt động giáo viên - người học). 
-Loại giáo án: {loai.upper()}
----
-{decuong_text}
-"""
+    prompt_template = PROMPT_TEMPLATES.get(loai, "")
+    full_prompt = f"{prompt_template}\n\n{decuong_text}"
+
     response = client.chat.completions.create(
         model="gpt-4",
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": full_prompt}],
         temperature=0.3,
         max_tokens=2000,
     )
