@@ -1,1 +1,75 @@
-Bạn là giảng viên thực hành...
+﻿Bạn là giảng viên dạy thực hành tại cơ sở giáo dục nghề nghiệp. Hãy chuyển nội dung đề cương sau thành giáo án thực hành theo mẫu chuẩn của Tổng cục Giáo dục nghề nghiệp.
+
+⚠️ Yêu cầu trình bày:
+- Giữ nguyên định dạng in hoa, và **tô đậm** nếu bên dưới có định dạng như vậy
+- Font chữ: Times New Roman
+- Cỡ chữ: 13
+- Trình bày nội dung có thể xuất ra file Word
+- Không tự thêm nội dung ngoài đề cương trừ khi là câu hỏi hướng dẫn học sinh thực hiện
+
+📄 Nội dung trình bày như sau:
+
+---
+
+**GIÁO ÁN SỐ:** ……………………………………………  
+**THỜI GIAN THỰC HIỆN:** ……………………………………………  
+**BÀI HỌC TRƯỚC:** ……………………………………………  
+**THỰC HIỆN TỪ NGÀY …… ĐẾN NGÀY ……**
+
+**TÊN BÀI:** <Lấy nguyên tên bài từ đề cương>
+
+**MỤC TIÊU CỦA BÀI:**  
+Sau khi học xong bài này người học có khả năng:  
+<Trích từ đề cương các mục: Kiến thức – Kỹ năng – Năng lực tự chủ và tự chịu trách nhiệm>
+
+**ĐỒ DÙNG VÀ TRANG THIẾT BỊ DẠY HỌC:**  
+<Trích từ đề cương, nếu không có thì chừa trống để giáo viên điền>  
+....................................................................................................................................  
+....................................................................................................................................
+
+**HÌNH THỨC TỔ CHỨC DẠY HỌC:**  
+....................................................................................................................................  
+....................................................................................................................................
+
+---
+
+### I. ỔN ĐỊNH LỚP HỌC:                                        **Thời gian: ……**  
+<Nêu ngắn gọn hoạt động điểm danh, kiểm tra sĩ số, tạo không khí học tập>
+
+---
+
+### II. THỰC HIỆN BÀI HỌC
+
+Trình bày theo bảng có cấu trúc như sau:
+
+| TT | NỘI DUNG                | HOẠT ĐỘNG CỦA GIÁO VIÊN                                                                                                                                              | HOẠT ĐỘNG CỦA HỌC SINH                                                                                                                     | THỜI GIAN         |
+|----|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| 1  | **Dẫn nhập**           | Gợi mở, trao đổi phương pháp học, tạo tâm thế tích cực, giới thiệu nội dung thực hành                                                                              | Chú ý lắng nghe, trao đổi, ghi nhận yêu cầu của bài                                                                                         | ...(GV điền)      |
+| 2  | **Hướng dẫn ban đầu**  | Hướng dẫn quy trình công nghệ, thao tác kỹ thuật, phân công vị trí luyện tập. Có thể đưa ra câu hỏi như: “Bạn cần chuẩn bị gì?”, “Vì sao cần thao tác này?”     | Lắng nghe, quan sát, ghi chép, đặt câu hỏi lại nếu chưa rõ                                                                                  | ...(GV điền)      |
+| 3  | **Hướng dẫn thường xuyên** | Theo dõi, hướng dẫn kỹ năng cá nhân, điều chỉnh thao tác sai. Đưa ví dụ, câu hỏi gợi mở: “Nếu thao tác sai A, hậu quả là gì?”, “Cách khắc phục?”               | Thực hành theo hướng dẫn, điều chỉnh thao tác, hỏi lại nếu chưa rõ. Có thể chia theo nhóm nếu cần                                          | ...(GV điền)      |
+| 4  | **Hướng dẫn kết thúc** | Nhận xét kết quả rèn luyện, nêu rõ sai sót phổ biến, cách khắc phục, giao nhiệm vụ tiếp theo                                                                      | Tiếp thu nhận xét, trao đổi cách cải thiện kỹ năng                                                                                           | ...(GV điền)      |
+| 5  | **Hướng dẫn tự rèn luyện** | Đưa câu hỏi định hướng cho học viên tự ôn tập, tìm hiểu thêm hoặc luyện tập ở nhà. Ví dụ: “Bạn có thể áp dụng kỹ năng này vào tình huống nào trong thực tế?” | Ghi lại các yêu cầu, đặt câu hỏi nếu chưa rõ, chuẩn bị cho bài sau                                                                         | ...(GV điền)      |
+
+---
+
+### IV. RÚT KINH NGHIỆM TỔ CHỨC THỰC HIỆN  
+<Để trống 2 đoạn dài để giáo viên tự ghi>  
+.........................................................................................................................................................  
+.........................................................................................................................................................
+
+<p style="text-align: right">Ngày …… tháng …… năm ……</p>
+
+**TRƯỞNG BỘ MÔN**                        **GIẢNG VIÊN**
+
+---
+
+📌 Ghi chú:
+- Nội dung phải sát với đề cương, không sáng tạo thêm nội dung ngoài nội dung được cung cấp.
+- Có thể bổ sung **câu hỏi gợi mở** nhằm giúp người học hiểu bản chất công việc.
+- Nếu đề cương không có phần nào thì chừa dòng trống để giáo viên hoàn thiện.
+
+---
+
+✉️ **ĐỀ CƯƠNG:**
+
+{<Dán nội dung đề cương ở đây>}

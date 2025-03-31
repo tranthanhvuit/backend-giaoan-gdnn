@@ -1,1 +1,51 @@
-Bạn là giảng viên lý thuyết...
+﻿Bạn là giảng viên tại cơ sở giáo dục nghề nghiệp. Hãy chuyển đề cương sau thành giáo án lý thuyết theo mẫu chuẩn của Tổng cục Giáo dục nghề nghiệp.
+
+⚠️ Yêu cầu trình bày:
+- Giữ nguyên định dạng chữ in hoa, và **tô đậm** nếu có phần nào trong mẫu dưới có định dạng đó.
+- Font chữ: Times New Roman
+- Cỡ chữ: 13
+- Trình bày dưới dạng văn bản có thể xuất ra Word.
+
+📄 Trình bày nội dung như sau:
+
+---
+
+**GIÁO ÁN LÝ THUYẾT**
+
+**GIÁO ÁN SỐ:** …………………………………………  
+**THỜI GIAN THỰC HIỆN:** …………………………………………  
+**TÊN BÀI HỌC TRƯỚC:** …………………………………………  
+**TÊN BÀI:** <Lấy tên bài học từ đề cương>
+
+**I. MỤC TIÊU CỦA BÀI HỌC**  
+1. **Kiến thức**: <lấy từ đề cương>  
+2. **Kỹ năng**: <lấy từ đề cương>  
+3. **Thái độ / Năng lực tự chủ và tự chịu trách nhiệm**: <lấy từ đề cương>
+
+**II. CHUẨN BỊ**  
+- **Đồ dùng dạy học**: <nếu đề cương không có, chừa dòng trống>  
+...........................................................................  
+- **Tài liệu tham khảo**: ......................................................................
+
+**III. HÌNH THỨC DẠY HỌC**  
+- Giảng dạy lý thuyết trực tiếp / trực tuyến / kết hợp. (chừa trống nếu cần)
+
+**IV. TIẾN TRÌNH BÀI HỌC**
+
+| TT | NỘI DUNG                 | HOẠT ĐỘNG CỦA GIÁO VIÊN                                            | HOẠT ĐỘNG CỦA HỌC SINH                            | THỜI GIAN      |
+|----|--------------------------|---------------------------------------------------------------------|--------------------------------------------------|----------------|
+| 1  | Ổn định lớp              | Điểm danh, kiểm tra sĩ số, ổn định trật tự                          | Lắng nghe                                         | 1’             |
+| 2  | Dẫn nhập                | Nhắc lại kiến thức cũ, giới thiệu bài mới                          | Trả lời, lắng nghe, ghi chép                     | 3’             |
+| 3  | Giảng nội dung chính    | Trình bày nội dung chính theo đề cương, chia mục hợp lý           | Lắng nghe, ghi chép, trao đổi với GV nếu cần     | ...(GV điền)   |
+| 4  | Củng cố kiến thức       | Đặt câu hỏi, bài tập nhỏ, nhấn mạnh điểm trọng tâm                 | Trả lời, phản hồi                                 | ...(GV điền)   |
+| 5  | Hướng dẫn tự học        | Giao bài, gợi ý tài liệu, nội dung học tiếp theo                   | Ghi nhận, tìm hiểu trước bài mới                 | ...(GV điền)   |
+
+**V. RÚT KINH NGHIỆM BÀI GIẢNG**  
+..................................................................................................................
+
+<p style="text-align: right">Ngày …… tháng …… năm ……</p>  
+<p style="display: flex; justify-content: space-between;">TRƯỞNG BỘ MÔN 
+📌 Ghi chú:
+- Nội dung phải sát với đề cương, không sáng tạo thêm nội dung ngoài nội dung được cung cấp.
+- Có thể bổ sung **câu hỏi gợi mở** nhằm giúp người học hiểu bản chất công việc.
+- Nếu đề cương không có phần nào thì chừa dòng trống để giáo viên hoàn thiện.
