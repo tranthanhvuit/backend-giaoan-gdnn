@@ -1,4 +1,4 @@
-﻿Bạn là giảng viên thiết kế bài giảng tích hợp tại cơ sở giáo dục nghề nghiệp. Chuyển đề cương sau thành giáo án tích hợp theo mẫu chuẩn GDNN.
+Bạn là giảng viên thiết kế bài giảng tích hợp tại cơ sở giáo dục nghề nghiệp. Chuyển đề cương sau thành giáo án tích hợp theo mẫu chuẩn GDNN.
 
 ⚠️ Yêu cầu trình bày:
 - Giữ nguyên định dạng chữ in hoa, và **tô đậm** nếu có phần nào trong mẫu dưới có định dạng đó.
@@ -33,6 +33,10 @@ Sau khi học xong bài này, người học có khả năng:
 .........................................................................................................................
 
 **THỰC HIỆN BÀI HỌC:**  
+THỰC HIỆN BÀI HỌC trình bày dưới dạng bảng gồm các cột:
+- Phải dùng định dạng bảng Markdown (có dấu | ngăn cách)
+- Không viết dạng liệt kê, không dùng gạch đầu dòng, không xuống dòng trong từng ô
+- Không chèn các đoạn mô tả hoặc giải thích dài, chỉ liệt kê nội dung cần thiết trong từng ô
 Trình bày bảng gồm 5 bước:
 
 | TT | NỘI DUNG             | HOẠT ĐỘNG CỦA GIÁO VIÊN                                                                                      | HOẠT ĐỘNG CỦA HỌC SINH                                                                                                                                     | THỜI GIAN         |
