@@ -54,6 +54,28 @@ def generate_giao_an(decuong_text, loai):
     )
     return response.choices[0].message.content
 
+def insert_table_from_markdown(doc, content):
+    lines = content.strip().splitlines()
+    table_lines = [line for line in lines if '|' in line]
+    if len(table_lines) < 2:
+        return False
+
+    headers = [h.strip() for h in table_lines[0].split('|') if h.strip()]
+    table = doc.add_table(rows=1, cols=len(headers))
+    table.style = 'Table Grid'
+    for i, h in enumerate(headers):
+        table.cell(0, i).text = h
+
+    for line in table_lines[2:]:
+        cells = [c.strip() for c in line.split('|') if c.strip()]
+        if len(cells) != len(headers):
+            continue
+        row_cells = table.add_row().cells
+        for i, cell in enumerate(cells):
+            row_cells[i].text = cell
+
+    return True
+
 @app.post("/generate")
 async def generate(file: UploadFile = File(...), loai: str = Form(...)):
     content = await file.read()
@@ -73,7 +95,9 @@ async def generate_docx(file: UploadFile = File(...), loai: str = Form(...)):
 
         # Tạo file Word từ nội dung GPT
         doc = Document()
-        doc.add_paragraph(giaoan_text)
+        inserted = insert_table_from_markdown(doc, giaoan_text)
+        if not inserted:
+            doc.add_paragraph(giaoan_text)
 
         doc_stream = BytesIO()
         doc.save(doc_stream)
