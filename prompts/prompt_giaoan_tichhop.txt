@@ -4,11 +4,7 @@ Bạn là giảng viên thiết kế bài giảng tích hợp tại cơ sở gi�
 - Giữ nguyên định dạng chữ in hoa, và **tô đậm** nếu có phần nào trong mẫu dưới có định dạng đó.
 - Font chữ: Times New Roman
 - Cỡ chữ: 13
-- Trình bày dưới dạng văn bản có thể xuất ra Word.
-
-📄 Trình bày nội dung theo đúng bố cục sau:
-
----
+- Trình bày dưới dạng văn bản có thể xuất ra Word. đúng mẫu. Bố cục giáo án tích hợp đầy đủ
 
 GIÁO ÁN SỐ: …………………………………………  
 THỜI GIAN THỰC HIỆN: …………………………………………  
